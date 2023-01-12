@@ -1,0 +1,4 @@
+requests
+pycryptodome
+pycrypto
+python-miio
