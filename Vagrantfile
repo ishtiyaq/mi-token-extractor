@@ -45,15 +45,13 @@ Vagrant.configure("2") do |config|
     vb.gui = false
 
     # Customize the amount of memory on the VM:
-    vb.memory = "4096"
-    vb.cpus = 6
+    vb.memory = "2048"
+    vb.cpus = 1
   end
 
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt update
-    apt install -y --no-install-recommends build-essential 
-    #software-properties-common ffmpeg libsm6 libxext6 tesseract-ocr libtesseract-dev libleptonica-dev pkg-config poppler-utils libxml2-dev libxslt1-dev antiword flac ffmpeg lame libmad0 libsox-fmt-mp3 sox
-    add-apt-repository ppa:deadsnakes/ppa
-    apt install -y --no-install-recommends python3.8 python3.8-dev python3.8-distutils python3-pip python3-enchant
+    apt install -y --no-install-recommends python3-pip miio-tools
+    pip install -r requirements.txt 
   SHELL
 end
